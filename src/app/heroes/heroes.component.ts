@@ -13,6 +13,7 @@ export class HeroesComponent implements OnInit {
     id: 0,
     name: 'Windestorm'
   };
+
   heroes = HEROES;
 
   selectedHero: Hero;
