@@ -26,6 +26,8 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     this.messageService.add(`HeroService: Selected hero id=${hero.id}`);
@@ -36,7 +38,6 @@ export class HeroesComponent implements OnInit {
     //this.heroes = this.heroService.getHeroes();
 
     //Observable
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 }

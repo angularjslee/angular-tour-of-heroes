@@ -1,54 +1,8 @@
-<p>heroes works!</p>
-<!--
-
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
-
-<div>
-  <label>
-    name:
-    <input [(ngModel)]="hero.name" placeholder="name">
-  </label>
-</div>
--->
-
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-    [class.selected]="hero === selectedHero">
-    <!--The Angular class binding makes it easy to add and remove a CSS class conditionally. -->
-    <!--Just add [class.some-css-class]="some-condition" to the element you want to style.-->
-    <span class="badge">{{hero.id}}</span>
-    {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
-<!--
-
-<div *ngIf="selectedHero">
-  &lt;!&ndash;Error:&ndash;&gt;
-  &lt;!&ndash;HeroesComponent.html:3 ERROR TypeError: Cannot read property 'name' of undefined&ndash;&gt;
-  &lt;!&ndash;Reason&ndash;&gt;
-  &lt;!&ndash;When the app starts, the selectedHero is undefined by design.&ndash;&gt;
-  &lt;!&ndash;Binding expressions in the template that refer to properties of selectedHero—expressions like {{selectedHero.name}}&ndash;&gt;
-  &lt;!&ndash;—must fail because there is no selected hero.&ndash;&gt;
-  &lt;!&ndash;Resolved&ndash;&gt;
-  &lt;!&ndash;The component should only display the selected hero details if the selectedHero exists.&ndash;&gt;
-  &lt;!&ndash;Why&ndash;&gt;
-  &lt;!&ndash;When selectedHero is undefined, the ngIf removes the hero detail from the DOM. &ndash;&gt;
-  &lt;!&ndash;There are no selectedHero bindings to consider.&ndash;&gt;
-  &lt;!&ndash;When the user picks a hero, selectedHero has a value and ngIf puts the hero detail into the DOM.&ndash;&gt;
-  <h2>{{selectedHero.name|uppercase}} Details</h2>
-  <div>
-    <span>id: </span>
-    {{selectedHero.id}}
-  </div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-</div>
--->
-
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
